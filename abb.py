@@ -45,8 +45,8 @@ def CheckAppRunning(imagename):
 			return True
 	return False
 '''
-x = raw_input("x:")
-print x
+#x = raw_input("x:")
+#print x
 
 if CheckAppRunning(TestAppName) == False:
 	print u"准备运行程序"
