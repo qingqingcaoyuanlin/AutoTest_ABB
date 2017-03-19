@@ -1,3 +1,4 @@
+# coding=utf-8
 import os
 import sys
 import subprocess
@@ -7,6 +8,7 @@ import time
 from win32com.client import GetObject
 
 TestAppName = "ABB HB Management Center.exe"
+className = "WindowsForms10.Window.8.app.0.3e799b_r15_ad1"
 def Is64Winows():
 	return 'PROGRAMFILES(X86)' in os.environ
 def AppPath():
@@ -25,8 +27,8 @@ def GetProcess(TestAppName):
 			return objProcess
 def CheckAppRunning(imagename):
 	'''
-	ÕâÀïĞèÒªfrom win32com.client import GetObject£¬Ö±½ÓÊ¹ÓÃGetObject("winmgmts:")¾Í¿ÉÒÔÁË
-	Ê¹ÓÃimport win32comÔÙÊ¹ÓÃwin32com.client.GetObject('winmgmts:')ÓĞÎÊÌâ£¬²»ÖªÎªºÎ
+	è¿™é‡Œéœ€è¦from win32com.client import GetObjectï¼Œç›´æ¥ä½¿ç”¨GetObject("winmgmts:")å°±å¯ä»¥äº†
+	ä½¿ç”¨import win32comå†ä½¿ç”¨win32com.client.GetObject('winmgmts:')æœ‰é—®é¢˜ï¼Œä¸çŸ¥ä¸ºä½•
 	'''
 	objWMIService = GetObject("winmgmts:")
 	colProcesses = objWMIService.ExecQuery("Select * from Win32_Process")
@@ -40,7 +42,7 @@ def CheckAppRunning(imagename):
 			return True
 	return False
 '''
-	#ÔËĞĞºÄ·ÑÊ±¼ä³¤
+	#è¿è¡Œè€—è´¹æ—¶é—´é•¿
 	p = os.popen('tasklist /FI "Imagename eq %s"' % imagename)  
 	count = p.read().count(imagename)
 	print count
